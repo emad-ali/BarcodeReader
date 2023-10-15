@@ -12,7 +12,7 @@ public class DefaultSerialPortBarcodeScanner : IBarcodeReader, IDisposable
     private bool canOperate = false;
     private readonly IBarcodeValidator? _barcodeValidator;
 
-    public DefaultSerialPortBarcodeScanner(SerialPortConfiguration config, IBarcodeValidator? barcodeValidator)
+    public DefaultSerialPortBarcodeScanner(SerialPortConfiguration config, IBarcodeValidator? barcodeValidator = null)
     {
         _barcodeValidator = barcodeValidator;
         _serialPort = new SerialPort(config.PortName, (int)config.PortBaudRate, Parity.None, 8, StopBits.One);
